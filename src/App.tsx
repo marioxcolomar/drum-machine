@@ -16,15 +16,15 @@ const App: React.FC = () => {
 	}
   return (
     <div className="drum-machine" style={displayStyles}>
-      <DrumPad SoundId='boom' KeyString='q' />
-      <DrumPad SoundId='clap' KeyString='w' />
-      <DrumPad SoundId='hihat' KeyString='e' />
-      <DrumPad SoundId='kick' KeyString='a' />
-      <DrumPad SoundId='openhat' KeyString='s' />
-      <DrumPad SoundId='ride' KeyString='d' />
-      <DrumPad SoundId='snare' KeyString='z' />
-      <DrumPad SoundId='tink' KeyString='x' />
-      <DrumPad SoundId='tom' KeyString='c' />
+      <DrumPad SoundId='boom' KeyString='q' KeyCode={81} />
+      <DrumPad SoundId='clap' KeyString='w' KeyCode={87} />
+      <DrumPad SoundId='hihat' KeyString='e' KeyCode={69} />
+      <DrumPad SoundId='kick' KeyString='a' KeyCode={65} />
+      <DrumPad SoundId='openhat' KeyString='s' KeyCode={83} />
+      <DrumPad SoundId='ride' KeyString='d' KeyCode={68} />
+      <DrumPad SoundId='snare' KeyString='z' KeyCode={90} />
+      <DrumPad SoundId='tink' KeyString='x' KeyCode={88} />
+      <DrumPad SoundId='tom' KeyString='c' KeyCode={67} />
     </div>
   );
 }
