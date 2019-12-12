@@ -1,3 +1,9 @@
+html, #root {
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +11,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('./assets/gabriel-barletta--lWcaUVJ39Y-unsplash.jpg');
+  background-size: cover;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  display: flex;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  text-align: center;
 }

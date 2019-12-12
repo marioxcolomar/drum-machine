@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import DrumPad from './components/DrumPad'
+
 const App: React.FC = () => {
+	const displayStyles: React.CSSProperties = {
+		display: 'flex',
+		color: '#fff',
+		padding: '20px',
+		width: '70vw',
+		margin: 'auto',
+		verticalAlign: 'middle',
+		backgroundColor: '#292929',
+		borderRadius: '5px',
+	}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="drum-machine" style={displayStyles}>
+      <DrumPad SoundId='boom' KeyString='q' />
+      <DrumPad SoundId='clap' KeyString='w' />
+      <DrumPad SoundId='hihat' KeyString='e' />
+      <DrumPad SoundId='kick' KeyString='a' />
+      <DrumPad SoundId='openhat' KeyString='s' />
+      <DrumPad SoundId='ride' KeyString='d' />
+      <DrumPad SoundId='snare' KeyString='z' />
+      <DrumPad SoundId='tink' KeyString='x' />
+      <DrumPad SoundId='tom' KeyString='c' />
     </div>
   );
 }
