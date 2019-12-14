@@ -1,13 +1,12 @@
 import * as React from 'react';
 
 interface DrumPadProps {
-	SoundId: string;
-	KeyString: string;
+	Letter: string;
+	Name: string;
 	KeyCode: number;
 }
 
-const DrumPad: React.FC<DrumPadProps> = ({ SoundId, KeyString, KeyCode }) => {
-	const audioRef = React.createRef<HTMLAudioElement>()
+const DrumPad: React.FC<DrumPadProps> = ({ Letter, Name, KeyCode }) => {
 
 	const drumPadStyles: React.CSSProperties = {
 		padding: '10px',
@@ -17,14 +16,15 @@ const DrumPad: React.FC<DrumPadProps> = ({ SoundId, KeyString, KeyCode }) => {
 		height: '50px',
 		cursor: 'pointer',
 		margin: 'auto',
-		fontWeight: 500
+		fontWeight: 500,
+		fontSize: '12px'
 	};
 
 	return (
-		<div id={SoundId} className='drum-pad' style={drumPadStyles} data-key={KeyCode} onClick={() => audioRef}>
-			<kbd>{KeyString.toUpperCase()}</kbd>
-			<p style={{ fontSize: '12px' }}>{SoundId}</p>
-			<audio className='clip' id={KeyString.toUpperCase()} src={`../assets/${SoundId}.wav`} ref={audioRef} autoPlay />
+		<div id={Letter} className='drum-pad' style={drumPadStyles} data-key={KeyCode} >
+			<kbd>{Letter}</kbd>
+			<p>{Name}</p>
+			<audio className='clip' id={Name} src={`../assets/${Letter}.wav`} autoPlay />
 		</div>
 	);
 };
