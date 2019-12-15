@@ -1,26 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
-import drumPads from './assets/drumPads'
+import drumPads from "./assets/drumPads";
 
 import DrumPad from "./components/DrumPad";
 
 const App: React.FC = () => {
-	const displayStyles: React.CSSProperties = {
+
+	const [display, setDisplay] = useState('Press or click a key.')
+
+	const drumMachineStyles: React.CSSProperties = {
 		display: "flex",
+		flexDirection: 'column',
 		color: "#fff",
+		justifyContent: 'space-evenly',
+	};
+
+	const keysStyles: React.CSSProperties = {
+		borderRadius: "5px",
+		display: 'flex',
 		padding: "20px",
 		width: "70vw",
-		margin: "auto",
-		verticalAlign: "middle",
 		backgroundColor: "#292929",
-		borderRadius: "5px"
-	};
+	}
+
+	const handleDisplay = (newDisplay: string): void => setDisplay(newDisplay)
+
 	return (
-		<div className="drum-machine" style={displayStyles}>
-      {drumPads.map(d =>
-        <DrumPad Letter={d.letter} Name={d.name} KeyCode={d.key} />
-      )}
+		<div className="drum-machine" style={drumMachineStyles}>
+			<h2>{display}</h2>
+			<div className="keys" style={keysStyles} >
+				{drumPads.map((d, i) => (
+					<DrumPad key={i} handleDisplay={handleDisplay} Letter={d.letter} Name={d.name} KeyCode={d.key} />
+				))}
+			</div>
 		</div>
 	);
 };
