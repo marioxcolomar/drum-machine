@@ -24,14 +24,12 @@ const App: React.FC = () => {
 		backgroundColor: "#292929",
 	}
 
-	const handleDisplay = (newDisplay: string): void => setDisplay(newDisplay)
-
 	return (
 		<div className="drum-machine" style={drumMachineStyles}>
 			<h2>{display}</h2>
 			<div className="keys" style={keysStyles} >
 				{drumPads.map((d, i) => (
-					<DrumPad key={i} handleDisplay={handleDisplay} Letter={d.letter} Name={d.name} KeyCode={d.key} />
+					<DrumPad key={i} onClick={() => setDisplay(d.name)} Letter={d.letter} Name={d.name} KeyCode={d.key} />
 				))}
 			</div>
 		</div>
