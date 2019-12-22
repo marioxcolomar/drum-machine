@@ -1,13 +1,14 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 
 interface DrumPadProps {
 	Letter: string;
 	Name: string;
 	KeyCode: number;
 	onClick: () => void;
+	setDisplay: (string: string) => void;
 }
 
-const DrumPad: React.FC<DrumPadProps> = ({ Letter, Name, KeyCode, onClick }) => {
+const DrumPad: React.FC<DrumPadProps> = ({ Letter, Name, KeyCode, onClick, setDisplay }) => {
 
 	const drumPadStyles: React.CSSProperties = {
 		padding: '10px',
@@ -20,6 +21,20 @@ const DrumPad: React.FC<DrumPadProps> = ({ Letter, Name, KeyCode, onClick }) => 
 		fontWeight: 500,
 		fontSize: '12px'
 	};
+
+	useEffect(() => {
+		window.addEventListener('keydown', keydownHanlder)
+		return () => {
+			window.removeEventListener('keydown', keydownHanlder)
+		}
+	})
+
+	const keydownHanlder = (e: KeyboardEvent) => {
+		if (e.keyCode === KeyCode) {
+			console.log('keydown matches letter', e.keyCode, Letter)
+			setDisplay(Name)
+		}
+	}
 
 	return (
 		<div id={Letter} className='drum-pad' style={drumPadStyles} data-key={KeyCode} onClick={onClick} >
