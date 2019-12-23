@@ -14,6 +14,7 @@ const App: React.FC = () => {
 		flexDirection: 'column',
 		color: "#fff",
 		justifyContent: 'space-evenly',
+		fontSize: '2em'
 	};
 
 	const keysStyles: React.CSSProperties = {
@@ -26,7 +27,7 @@ const App: React.FC = () => {
 
 	return (
 		<div className="drum-machine" style={drumMachineStyles}>
-			<h2>{display}</h2>
+			<span className='display'>{display}</span>
 			<div className="keys" style={keysStyles} >
 				{drumPads.map((d, i) => (
 					<DrumPad key={i} onClick={() => setDisplay(d.name)} setDisplay={setDisplay} Letter={d.letter} Name={d.name} KeyCode={d.key} />
