@@ -20,8 +20,11 @@ const App: React.FC = () => {
 	const keysStyles: React.CSSProperties = {
 		borderRadius: "5px",
 		display: 'flex',
+		flexWrap: 'wrap',
+		justifyContent: 'center',
+		margin: '0 auto',
 		padding: "20px",
-		width: "70vw",
+		width: "60vw",
 		backgroundColor: "#292929",
 	}
 
