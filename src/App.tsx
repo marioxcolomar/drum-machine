@@ -30,7 +30,7 @@ const App: React.FC = () => {
 			<span className='display'>{display}</span>
 			<div className="keys" style={keysStyles} >
 				{drumPads.map((d, i) => (
-					<DrumPad key={i} onClick={() => setDisplay(d.name)} setDisplay={setDisplay} Letter={d.letter} Name={d.name} KeyCode={d.key} />
+					<DrumPad key={i} setDisplay={setDisplay} Letter={d.letter} Name={d.name} KeyCode={d.key} Src={d.src} />
 				))}
 			</div>
 		</div>
