@@ -16,12 +16,12 @@ const DrumPad: React.FC<DrumPadProps> = ({ Letter, Name, Src, KeyCode, setDispla
 		padding: '10px',
 		border: '1px solid lightgrey',
 		borderRadius: '5px',
-		width: '50px',
-		height: '50px',
+		width: '70px',
+		height: '70px',
 		cursor: 'pointer',
-		margin: 'auto',
+		margin: '5px',
 		fontWeight: 500,
-		fontSize: '12px'
+		fontSize: '20px'
 	};
 
 	useEffect(() => {
@@ -46,7 +46,7 @@ const DrumPad: React.FC<DrumPadProps> = ({ Letter, Name, Src, KeyCode, setDispla
 	return (
 		<div id={Letter} className='drum-pad' style={drumPadStyles} data-key={KeyCode} onClick={handleClick} >
 			<kbd>{Letter}</kbd>
-			<p>{Name}</p>
+			<p style={{margin: '0'}}>{Name}</p>
 			<audio ref={audioRef} className='clip' id={Name} src={Src} autoPlay />
 		</div>
 	);
